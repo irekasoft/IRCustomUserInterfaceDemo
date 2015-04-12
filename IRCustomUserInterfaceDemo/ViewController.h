@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IRPopoverView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <IRPopoverViewDelegate> {
+    
+    CGPoint point;
+    
+}
 
 
 @end

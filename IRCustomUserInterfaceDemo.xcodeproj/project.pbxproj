@@ -14,6 +14,8 @@
 		A39BD4EF1ADB26AD0093FA0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A39BD4EE1ADB26AD0093FA0C /* Images.xcassets */; };
 		A39BD4F21ADB26AD0093FA0C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39BD4F01ADB26AD0093FA0C /* LaunchScreen.xib */; };
 		A39BD4FE1ADB26AD0093FA0C /* IRCustomUserInterfaceDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4FD1ADB26AD0093FA0C /* IRCustomUserInterfaceDemoTests.m */; };
+		A39BD50A1ADB26F70093FA0C /* IRPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD5091ADB26F70093FA0C /* IRPopoverView.m */; };
+		A39BD50E1ADB2D280093FA0C /* IRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD50D1ADB2D280093FA0C /* IRPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		A39BD4F71ADB26AD0093FA0C /* IRCustomUserInterfaceDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRCustomUserInterfaceDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39BD4FC1ADB26AD0093FA0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A39BD4FD1ADB26AD0093FA0C /* IRCustomUserInterfaceDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCustomUserInterfaceDemoTests.m; sourceTree = "<group>"; };
+		A39BD5081ADB26F70093FA0C /* IRPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPopoverView.h; sourceTree = "<group>"; };
+		A39BD5091ADB26F70093FA0C /* IRPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPopoverView.m; sourceTree = "<group>"; };
+		A39BD50C1ADB2D280093FA0C /* IRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerView.h; sourceTree = "<group>"; };
+		A39BD50D1ADB2D280093FA0C /* IRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,8 @@
 		A39BD4D51ADB26AD0093FA0C = {
 			isa = PBXGroup;
 			children = (
+				A39BD50B1ADB2D280093FA0C /* IRPickerView */,
+				A39BD5071ADB26E00093FA0C /* IRPopoverView */,
 				A39BD4E01ADB26AD0093FA0C /* IRCustomUserInterfaceDemo */,
 				A39BD4FA1ADB26AD0093FA0C /* IRCustomUserInterfaceDemoTests */,
 				A39BD4DF1ADB26AD0093FA0C /* Products */,
@@ -117,6 +125,24 @@
 				A39BD4FC1ADB26AD0093FA0C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A39BD5071ADB26E00093FA0C /* IRPopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				A39BD5081ADB26F70093FA0C /* IRPopoverView.h */,
+				A39BD5091ADB26F70093FA0C /* IRPopoverView.m */,
+			);
+			path = IRPopoverView;
+			sourceTree = "<group>";
+		};
+		A39BD50B1ADB2D280093FA0C /* IRPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				A39BD50C1ADB2D280093FA0C /* IRPickerView.h */,
+				A39BD50D1ADB2D280093FA0C /* IRPickerView.m */,
+			);
+			path = IRPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +247,9 @@
 			files = (
 				A39BD4EA1ADB26AD0093FA0C /* ViewController.m in Sources */,
 				A39BD4E71ADB26AD0093FA0C /* AppDelegate.m in Sources */,
+				A39BD50E1ADB2D280093FA0C /* IRPickerView.m in Sources */,
 				A39BD4E41ADB26AD0093FA0C /* main.m in Sources */,
+				A39BD50A1ADB26F70093FA0C /* IRPopoverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IRCustomUserInterfaceDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -360,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IRCustomUserInterfaceDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
