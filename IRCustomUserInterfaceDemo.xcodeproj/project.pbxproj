@@ -16,6 +16,8 @@
 		A39BD4FE1ADB26AD0093FA0C /* IRCustomUserInterfaceDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4FD1ADB26AD0093FA0C /* IRCustomUserInterfaceDemoTests.m */; };
 		A39BD50A1ADB26F70093FA0C /* IRPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD5091ADB26F70093FA0C /* IRPopoverView.m */; };
 		A39BD50E1ADB2D280093FA0C /* IRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD50D1ADB2D280093FA0C /* IRPickerView.m */; };
+		A39BD5121ADB31700093FA0C /* IRAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD5111ADB31700093FA0C /* IRAssetsPickerController.m */; };
+		A39BD5151ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch in Resources */ = {isa = PBXBuildFile; fileRef = A39BD5141ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 		A39BD5091ADB26F70093FA0C /* IRPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPopoverView.m; sourceTree = "<group>"; };
 		A39BD50C1ADB2D280093FA0C /* IRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerView.h; sourceTree = "<group>"; };
 		A39BD50D1ADB2D280093FA0C /* IRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPickerView.m; sourceTree = "<group>"; };
+		A39BD5101ADB31700093FA0C /* IRAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRAssetsPickerController.h; sourceTree = "<group>"; };
+		A39BD5111ADB31700093FA0C /* IRAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRAssetsPickerController.m; sourceTree = "<group>"; };
+		A39BD5141ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRCustomUserInterfaceDemo.sketch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,8 @@
 		A39BD4D51ADB26AD0093FA0C = {
 			isa = PBXGroup;
 			children = (
+				A39BD5131ADB34EC0093FA0C /* Resources */,
+				A39BD50F1ADB31280093FA0C /* Library */,
 				A39BD50B1ADB2D280093FA0C /* IRPickerView */,
 				A39BD5071ADB26E00093FA0C /* IRPopoverView */,
 				A39BD4E01ADB26AD0093FA0C /* IRCustomUserInterfaceDemo */,
@@ -143,6 +150,23 @@
 				A39BD50D1ADB2D280093FA0C /* IRPickerView.m */,
 			);
 			path = IRPickerView;
+			sourceTree = "<group>";
+		};
+		A39BD50F1ADB31280093FA0C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A39BD5101ADB31700093FA0C /* IRAssetsPickerController.h */,
+				A39BD5111ADB31700093FA0C /* IRAssetsPickerController.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		A39BD5131ADB34EC0093FA0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A39BD5141ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +251,7 @@
 			files = (
 				A39BD4ED1ADB26AD0093FA0C /* Main.storyboard in Resources */,
 				A39BD4F21ADB26AD0093FA0C /* LaunchScreen.xib in Resources */,
+				A39BD5151ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch in Resources */,
 				A39BD4EF1ADB26AD0093FA0C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A39BD4EA1ADB26AD0093FA0C /* ViewController.m in Sources */,
+				A39BD5121ADB31700093FA0C /* IRAssetsPickerController.m in Sources */,
 				A39BD4E71ADB26AD0093FA0C /* AppDelegate.m in Sources */,
 				A39BD50E1ADB2D280093FA0C /* IRPickerView.m in Sources */,
 				A39BD4E41ADB26AD0093FA0C /* main.m in Sources */,

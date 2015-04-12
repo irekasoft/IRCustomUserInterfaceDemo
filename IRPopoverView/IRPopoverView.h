@@ -155,7 +155,7 @@
 #define kCPOffset 1.8f
 
 //radius for the rounded corners of the main popover box
-#define kBoxRadius 4.f
+#define kBoxRadius 2.f
 
 //Curvature value for the arrow.  Set to 0.f to make it linear.
 #define kArrowCurvature 6.f
@@ -206,7 +206,7 @@
 // TITLE GRADIENT
 
 //bool that turns off/on title gradient
-#define kDrawTitleGradient YES
+#define kDrawTitleGradient NO
 
 //bottom color white value in title gradient bg
 #define kGradientTitleBottomColor [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:kBoxAlpha]
