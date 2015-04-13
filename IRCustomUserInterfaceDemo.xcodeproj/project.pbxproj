@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A30628361ADC0AC300E40333 /* IRColorSelectorScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */; };
 		A30628391ADC0CF400E40333 /* IRColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A30628381ADC0CF400E40333 /* IRColorButton.m */; };
+		A306283B1ADC132800E40333 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = A306283A1ADC132800E40333 /* ReadMe.md */; };
 		A39BD4E41ADB26AD0093FA0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4E31ADB26AD0093FA0C /* main.m */; };
 		A39BD4E71ADB26AD0093FA0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4E61ADB26AD0093FA0C /* AppDelegate.m */; };
 		A39BD4EA1ADB26AD0093FA0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4E91ADB26AD0093FA0C /* ViewController.m */; };
@@ -37,6 +38,7 @@
 		A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRColorSelectorScrollerView.m; sourceTree = "<group>"; };
 		A30628371ADC0CF400E40333 /* IRColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRColorButton.h; path = IRColorSelectorScrollerView/IRColorButton.h; sourceTree = SOURCE_ROOT; };
 		A30628381ADC0CF400E40333 /* IRColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRColorButton.m; path = IRColorSelectorScrollerView/IRColorButton.m; sourceTree = SOURCE_ROOT; };
+		A306283A1ADC132800E40333 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		A39BD4DE1ADB26AD0093FA0C /* IRCustomUserInterfaceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRCustomUserInterfaceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39BD4E21ADB26AD0093FA0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A39BD4E31ADB26AD0093FA0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		A39BD4D51ADB26AD0093FA0C = {
 			isa = PBXGroup;
 			children = (
+				A306283A1ADC132800E40333 /* ReadMe.md */,
 				A39BD5131ADB34EC0093FA0C /* Resources */,
 				A30628321ADC0AC300E40333 /* IRColorSelectorScrollerView */,
 				A39BD50F1ADB31280093FA0C /* Library */,
@@ -296,6 +299,7 @@
 				A39BD4E41ADB26AD0093FA0C /* main.m in Sources */,
 				A39BD50A1ADB26F70093FA0C /* IRPopoverView.m in Sources */,
 				A30628361ADC0AC300E40333 /* IRColorSelectorScrollerView.m in Sources */,
+				A306283B1ADC132800E40333 /* ReadMe.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
