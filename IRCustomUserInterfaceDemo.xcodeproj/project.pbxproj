@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A30628361ADC0AC300E40333 /* IRColorSelectorScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */; };
-		A30628391ADC0CF400E40333 /* IRColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A30628381ADC0CF400E40333 /* IRColorButton.m */; };
 		A306283B1ADC132800E40333 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = A306283A1ADC132800E40333 /* ReadMe.md */; };
 		A306283E1ADC509000E40333 /* IRRoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A306283D1ADC509000E40333 /* IRRoundedButton.m */; };
 		A39BD4E41ADB26AD0093FA0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4E31ADB26AD0093FA0C /* main.m */; };
@@ -37,8 +36,6 @@
 /* Begin PBXFileReference section */
 		A30628331ADC0AC300E40333 /* IRColorSelectorScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRColorSelectorScrollerView.h; sourceTree = "<group>"; };
 		A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRColorSelectorScrollerView.m; sourceTree = "<group>"; };
-		A30628371ADC0CF400E40333 /* IRColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRColorButton.h; path = IRColorSelectorScrollerView/IRColorButton.h; sourceTree = SOURCE_ROOT; };
-		A30628381ADC0CF400E40333 /* IRColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRColorButton.m; path = IRColorSelectorScrollerView/IRColorButton.m; sourceTree = SOURCE_ROOT; };
 		A306283A1ADC132800E40333 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		A306283C1ADC509000E40333 /* IRRoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRoundedButton.h; sourceTree = "<group>"; };
 		A306283D1ADC509000E40333 /* IRRoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRoundedButton.m; sourceTree = "<group>"; };
@@ -87,8 +84,6 @@
 			children = (
 				A30628331ADC0AC300E40333 /* IRColorSelectorScrollerView.h */,
 				A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */,
-				A30628371ADC0CF400E40333 /* IRColorButton.h */,
-				A30628381ADC0CF400E40333 /* IRColorButton.m */,
 			);
 			path = IRColorSelectorScrollerView;
 			sourceTree = "<group>";
@@ -296,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A30628391ADC0CF400E40333 /* IRColorButton.m in Sources */,
 				A39BD4EA1ADB26AD0093FA0C /* ViewController.m in Sources */,
 				A39BD5121ADB31700093FA0C /* IRAssetsPickerController.m in Sources */,
 				A39BD4E71ADB26AD0093FA0C /* AppDelegate.m in Sources */,

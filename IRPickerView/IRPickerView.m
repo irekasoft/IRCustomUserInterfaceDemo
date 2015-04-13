@@ -9,7 +9,7 @@
 static float durationAnimation = 0.3f;
 
 #define PICKER_HEIGHT 216.0
-#define TOOLBAR_HEIGHT 50
+#define TOOLBAR_HEIGHT 44
 
 - (id)initWithOptions:(NSArray *)array withSelectedIndex:(int)index{
     

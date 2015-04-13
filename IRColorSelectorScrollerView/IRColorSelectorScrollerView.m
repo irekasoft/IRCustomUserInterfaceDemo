@@ -40,7 +40,7 @@
     [self setup];
 }
 
-- (void)selecting:(IRColorButton *)sender{
+- (void)selecting:(UIButton *)sender{
 
     [self setContentOffset:CGPointMake((int)sender.tag*square_side, 0) animated:YES];
 }
@@ -67,7 +67,7 @@
 
     numberOfSelection = (int)[colorArray count];
     for (int i = 0; i < numberOfSelection; i++) {
-        IRColorButton *view = [[IRColorButton alloc] initWithFrame:CGRectMake(xOffset + i*square_side, (scrollViewHeight - square_side)/2, square_side, square_side)];
+        UIButton *view = [[UIButton alloc] initWithFrame:CGRectMake(xOffset + i*square_side, (scrollViewHeight - square_side)/2, square_side, square_side)];
         view.backgroundColor = HEX_COLOR([colorArray[i] integerValue], 1.0);
         [view addTarget:self action:@selector(selecting:) forControlEvents:UIControlEventTouchUpInside];
         view.tag = i;
@@ -95,7 +95,7 @@
     
     CGFloat closestX = 0;
     
-    IRColorButton *centerView;
+    UIButton *centerView;
     CGFloat centerFloat = 0;
 
     // + 1 untuk trick pilih ke-dua
@@ -107,7 +107,7 @@
     // perlu sikit offset.
     for (UIView *view in self.subviews) {
 
-        if ([view isKindOfClass:[IRColorButton class]]) {
+        if ([view isKindOfClass:[UIButton class]]) {
             
             view.transform = CGAffineTransformIdentity;
             
@@ -123,7 +123,7 @@
                 if (original_offsetX < -square_side/2 || original_offsetX > numberOfSelection*square_side-square_side/2) {
                     centerView = nil;
                 }else{
-                    centerView = (IRColorButton *)view;
+                    centerView = (UIButton *)view;
                 }
 
                 

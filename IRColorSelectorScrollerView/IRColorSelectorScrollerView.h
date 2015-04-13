@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IRColorButton.h"
+
 
 #define EXTRA_SCALE 0.2
 #define SQUARE_SIZE_RATIO 0.6
@@ -33,3 +33,4 @@
 - (void)picker:(IRColorSelectorScrollerView *)picker color:(UIColor*)color forIndex:(int)index;
 
 @end
+

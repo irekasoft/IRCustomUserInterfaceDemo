@@ -12,4 +12,9 @@ IB_DESIGNABLE
 
 @interface IRRoundedButton : UIButton
 
+@property (assign) IBInspectable BOOL isGradient;
+
+@property (nonatomic) IBInspectable UIColor *topColor;
+@property (nonatomic) IBInspectable UIColor *bottomColor;
+
 @end
