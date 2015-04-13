@@ -20,6 +20,8 @@ static float durationAnimation = 0.3f;
 
 - (void)show{
     
+    windowBounds = [[UIScreen mainScreen] bounds];
+    
     self.pickerView = [[UIPickerView alloc] init];
     self.pickerView.delegate   = self;
     self.pickerView.dataSource = self;
@@ -37,7 +39,7 @@ static float durationAnimation = 0.3f;
 
     CGFloat winHeight = [[UIScreen mainScreen] bounds].size.height;
     
-    self.pickerView.frame = CGRectMake(0, winHeight, 320, 216.0);
+    self.pickerView.frame = CGRectMake(0, winHeight, windowBounds.size.width, 216.0);
 	
 	//animate picker view
 	self.pickerView.hidden  = NO;
@@ -70,7 +72,7 @@ static float durationAnimation = 0.3f;
 
 - (void) createToolbar {
 
-	CGRect windowBounds = [[UIScreen mainScreen] bounds];
+	
 	
 
 	self.pickerView.frame =CGRectMake(0, windowBounds.size.height,
@@ -88,7 +90,7 @@ static float durationAnimation = 0.3f;
     [self.view addSubview:overlayButton];
     
     self.toolBar = [[UIToolbar alloc] init];
-    self.toolBar.tintColor = [UIColor darkGrayColor];
+    self.toolBar.tintColor = [UIColor colorWithRed:0.0f green:0.49f blue:0.96f alpha:1.0f];
     self.toolBar.translucent = YES;
    
     self.toolBar.hidden=YES;
@@ -123,7 +125,7 @@ static float durationAnimation = 0.3f;
     
     if([self.delegate respondsToSelector:@selector(picker:DoneClicked:forIndex:)]){
         
-        int index = [self.pickerView selectedRowInComponent:0];
+        int index = (int)[self.pickerView selectedRowInComponent:0];
         
         [self.delegate picker:self DoneClicked:self.optionsArray[index] forIndex:index];
         
@@ -155,8 +157,7 @@ static float durationAnimation = 0.3f;
 	
 }
 
-#pragma mark -
-#pragma mark self.pickerView delegate methods
+#pragma mark - self.pickerView delegate methods
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 }

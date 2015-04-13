@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -17,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
+    self.colorPicker.pickerDelegate = self;
+   
     
 }
 
@@ -26,25 +27,64 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+#pragma mark - Actions
+
+- (IBAction)openPickerView:(id)sender {
+    
+    NSArray *array = @[@"hello",@"hello2"];
+    
+    self.picker = [[IRPickerView alloc] initWithOptions:array
+                                 withSelectedIndex:pickerIdx];
+    self.picker.delegate = self;
+    self.picker.tag = 1;
+    [self.picker show];
+
+}
+
 - (IBAction)openPopup:(UIButton *)sender {
     
     point = sender.center;
     
-    IRPopoverView *pv = [IRPopoverView showPopoverAtPoint:point
-                                  inView:self.view
-                               withTitle:@"Was this helpful?"
+    [IRPopoverView showPopoverAtPoint:point
+                                                   inView:self.view
+                                                withTitle:@"Was this helpful?"
                                           withStringArray:@[@"YES", @"NO"]
-                                delegate:self]; // Show string array defined at top of this file with title.
+                                                 delegate:self];
+    
+    // Show string array defined at top of this file with title.
+}
+
+#pragma mark - IRColorSelectorScrollerViewDelegate
+
+
+- (void)picker:(IRColorSelectorScrollerView *)picker color:(UIColor*)color forIndex:(int)index{
+    
+    NSLog(@"idx %d",index);
+    self.selectedColor.backgroundColor = color;
+    
 }
 
 
-#pragma mark - PopoverViewDelegate Methods
+#pragma mark - IRPickerViewDelegate
+
+
+- (void)picker:(IRPickerView *)picker DoneClicked:(NSString *)name forIndex:(int)index{
+    
+}
+
+
+
+#pragma mark - IRPopoverViewDelegate
 
 - (void)popoverView:(IRPopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index
 {
     NSLog(@"%s item:%d", __PRETTY_FUNCTION__, (int)index);
     
-   
+    
     // alternatively, you can use
     [popoverView showSuccess];
     // or
@@ -57,8 +97,6 @@
 - (void)popoverViewDidDismiss:(IRPopoverView *)popoverView
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-
+    
 }
-
-
 @end

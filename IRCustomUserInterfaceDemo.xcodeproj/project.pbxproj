@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30628361ADC0AC300E40333 /* IRColorSelectorScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */; };
+		A30628391ADC0CF400E40333 /* IRColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A30628381ADC0CF400E40333 /* IRColorButton.m */; };
 		A39BD4E41ADB26AD0093FA0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4E31ADB26AD0093FA0C /* main.m */; };
 		A39BD4E71ADB26AD0093FA0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4E61ADB26AD0093FA0C /* AppDelegate.m */; };
 		A39BD4EA1ADB26AD0093FA0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD4E91ADB26AD0093FA0C /* ViewController.m */; };
@@ -31,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A30628331ADC0AC300E40333 /* IRColorSelectorScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRColorSelectorScrollerView.h; sourceTree = "<group>"; };
+		A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRColorSelectorScrollerView.m; sourceTree = "<group>"; };
+		A30628371ADC0CF400E40333 /* IRColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRColorButton.h; path = IRColorSelectorScrollerView/IRColorButton.h; sourceTree = SOURCE_ROOT; };
+		A30628381ADC0CF400E40333 /* IRColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRColorButton.m; path = IRColorSelectorScrollerView/IRColorButton.m; sourceTree = SOURCE_ROOT; };
 		A39BD4DE1ADB26AD0093FA0C /* IRCustomUserInterfaceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRCustomUserInterfaceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39BD4E21ADB26AD0093FA0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A39BD4E31ADB26AD0093FA0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,10 +77,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A30628321ADC0AC300E40333 /* IRColorSelectorScrollerView */ = {
+			isa = PBXGroup;
+			children = (
+				A30628331ADC0AC300E40333 /* IRColorSelectorScrollerView.h */,
+				A30628341ADC0AC300E40333 /* IRColorSelectorScrollerView.m */,
+				A30628371ADC0CF400E40333 /* IRColorButton.h */,
+				A30628381ADC0CF400E40333 /* IRColorButton.m */,
+			);
+			path = IRColorSelectorScrollerView;
+			sourceTree = "<group>";
+		};
 		A39BD4D51ADB26AD0093FA0C = {
 			isa = PBXGroup;
 			children = (
 				A39BD5131ADB34EC0093FA0C /* Resources */,
+				A30628321ADC0AC300E40333 /* IRColorSelectorScrollerView */,
 				A39BD50F1ADB31280093FA0C /* Library */,
 				A39BD50B1ADB2D280093FA0C /* IRPickerView */,
 				A39BD5071ADB26E00093FA0C /* IRPopoverView */,
@@ -270,12 +288,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30628391ADC0CF400E40333 /* IRColorButton.m in Sources */,
 				A39BD4EA1ADB26AD0093FA0C /* ViewController.m in Sources */,
 				A39BD5121ADB31700093FA0C /* IRAssetsPickerController.m in Sources */,
 				A39BD4E71ADB26AD0093FA0C /* AppDelegate.m in Sources */,
 				A39BD50E1ADB2D280093FA0C /* IRPickerView.m in Sources */,
 				A39BD4E41ADB26AD0093FA0C /* main.m in Sources */,
 				A39BD50A1ADB26F70093FA0C /* IRPopoverView.m in Sources */,
+				A30628361ADC0AC300E40333 /* IRColorSelectorScrollerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +494,7 @@
 				A39BD5031ADB26AD0093FA0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A39BD5041ADB26AD0093FA0C /* Build configuration list for PBXNativeTarget "IRCustomUserInterfaceDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +503,7 @@
 				A39BD5061ADB26AD0093FA0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

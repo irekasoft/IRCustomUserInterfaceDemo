@@ -9,7 +9,7 @@
 @interface IRPickerView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>{
 
 	UIButton *overlayButton;
-    
+    CGRect windowBounds;
 }
 
 
