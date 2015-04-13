@@ -8,6 +8,9 @@
 
 static float durationAnimation = 0.3f;
 
+#define PICKER_HEIGHT 216.0
+#define TOOLBAR_HEIGHT 50
+
 - (id)initWithOptions:(NSArray *)array withSelectedIndex:(int)index{
     
     if (self = [super init]) {
@@ -25,7 +28,7 @@ static float durationAnimation = 0.3f;
     self.pickerView = [[UIPickerView alloc] init];
     self.pickerView.delegate   = self;
     self.pickerView.dataSource = self;
-    self.pickerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    self.pickerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1];
     self.pickerView.showsSelectionIndicator=YES;
     [self.pickerView selectRow:self.selectedPicker inComponent:0 animated:NO];
     [self.view addSubview:self.pickerView];
@@ -39,7 +42,7 @@ static float durationAnimation = 0.3f;
 
     CGFloat winHeight = [[UIScreen mainScreen] bounds].size.height;
     
-    self.pickerView.frame = CGRectMake(0, winHeight, windowBounds.size.width, 216.0);
+    self.pickerView.frame = CGRectMake(0, winHeight, windowBounds.size.width, PICKER_HEIGHT);
 	
 	//animate picker view
 	self.pickerView.hidden  = NO;
@@ -47,9 +50,9 @@ static float durationAnimation = 0.3f;
     
 	[UIView animateWithDuration:durationAnimation animations:^(void){
 
-		CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -216);
+		CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -PICKER_HEIGHT);
 		self.pickerView.transform = transform;
-        self.toolBar.transform= CGAffineTransformMakeTranslation(0, -216-50);
+        self.toolBar.transform= CGAffineTransformMakeTranslation(0, -PICKER_HEIGHT-TOOLBAR_HEIGHT);
         
 	}completion:^(BOOL finished){
         
@@ -70,21 +73,19 @@ static float durationAnimation = 0.3f;
 
 }
 
+
 - (void) createToolbar {
 
-	
-	
-
 	self.pickerView.frame =CGRectMake(0, windowBounds.size.height,
-                                      windowBounds.size.width, 216);
+                                      windowBounds.size.width, PICKER_HEIGHT);
 
 
     overlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
     overlayButton.backgroundColor = [UIColor blackColor];
     overlayButton.frame = windowBounds;
     [overlayButton addTarget:self action:@selector(pickerDoneClicked:) forControlEvents:UIControlEventTouchUpInside];
-    overlayButton.alpha     =0.0;
-    overlayButton.hidden    =YES;
+    overlayButton.alpha     = 0.0;
+    overlayButton.hidden    = YES;
 
     
     [self.view addSubview:overlayButton];
@@ -97,7 +98,7 @@ static float durationAnimation = 0.3f;
     [self.toolBar sizeToFit];
     
     CGRect rect = self.pickerView.frame;
-    rect.size.height = 50;
+    rect.size.height = TOOLBAR_HEIGHT;
     self.toolBar.frame = rect;
     
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
@@ -123,11 +124,11 @@ static float durationAnimation = 0.3f;
         return;
     }
     
-    if([self.delegate respondsToSelector:@selector(picker:DoneClicked:forIndex:)]){
+    if([self.delegate respondsToSelector:@selector(picker:clicked:forIndex:)]){
         
         int index = (int)[self.pickerView selectedRowInComponent:0];
         
-        [self.delegate picker:self DoneClicked:self.optionsArray[index] forIndex:index];
+        [self.delegate picker:self clicked:self.optionsArray[index] forIndex:index];
         
 
     }
@@ -193,28 +194,20 @@ static float durationAnimation = 0.3f;
     return retval;
 }
 
-//- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-//	return [self.optionsArray objectAtIndex:row];
-//}
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
     NSString *str = [self.optionsArray objectAtIndex:row];
-    NSDictionary *att = @{NSFontAttributeName: [UIFont fontWithName:@"Arial" size:4],NSForegroundColorAttributeName:[[UIColor blackColor] colorWithAlphaComponent:0.9]};
+    NSDictionary *att = @{NSFontAttributeName: [UIFont fontWithName:@"Arial" size:4],NSForegroundColorAttributeName:[[UIColor blackColor] colorWithAlphaComponent:1]};
     NSAttributedString *attString = [[NSAttributedString alloc] initWithString:str attributes:att];
     
     return attString;
     
 }
 
-
-
-// returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
     return [self.optionsArray count];
     
 }
-
-
 
 @end

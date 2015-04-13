@@ -19,6 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.colorPicker.pickerDelegate = self;
+    self.colorPicker.currentSelectedIndex = 3;
+    
+
+    self.selectedColor.backgroundColor = [IRColorSelectorScrollerView colorForIdx:self.colorPicker.currentSelectedIndex];
    
     
 }

@@ -9,21 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "IRColorButton.h"
 
+#define EXTRA_SCALE 0.2
+#define SQUARE_SIZE_RATIO 0.6
+
 @protocol IRColorSelectorScrollerViewDelegate;
 
-@interface IRColorSelectorScrollerView : UIScrollView <UIScrollViewDelegate> {
-    
-    CGFloat scrollViewWidth;
-    CGFloat scrollViewHeight;
-    CGFloat cube_side;
-    CGFloat xOffset;
-    
-    int numberOfSelection;
-}
+@interface IRColorSelectorScrollerView : UIScrollView <UIScrollViewDelegate>
 
 @property (assign, nonatomic) id <IRColorSelectorScrollerViewDelegate> pickerDelegate;
 
+@property (assign, nonatomic) NSInteger currentSelectedIndex;
+
+@property (strong) NSArray *colorArray;
+
 + (NSArray *)colorArray;
++ (UIColor *)colorForIdx:(NSInteger)index;
 
 @end
 

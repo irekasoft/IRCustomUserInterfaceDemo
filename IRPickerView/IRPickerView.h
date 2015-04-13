@@ -34,6 +34,6 @@
 
 @optional
 
-- (void)picker:(IRPickerView *)picker DoneClicked:(NSString *)name forIndex:(int)index;
+- (void)picker:(IRPickerView *)picker clicked:(NSString *)name forIndex:(int)index;
 
 @end
