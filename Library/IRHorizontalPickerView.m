@@ -91,13 +91,13 @@
             
             
             
-            [view addTarget:self action:@selector(selecting:) forControlEvents:UIControlEventTouchUpInside];
             
-            
-            view.tag = i;
         }
         
+        [view addTarget:self action:@selector(selecting:) forControlEvents:UIControlEventTouchUpInside];
         
+        
+        view.tag = i;
         [self addSubview:view];
         
     }
