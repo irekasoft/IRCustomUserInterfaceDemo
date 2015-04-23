@@ -10,9 +10,10 @@
 #import "IRPopoverView.h"
 #import "IRPickerView.h"
 #import "IRColorSelectorScrollerView.h"
+#import "IRHorizontalPickerView.h"
 
 @class IRColorSelectorScrollerView;
-@interface ViewController : UIViewController <IRPopoverViewDelegate, IRPickerViewDelegate, IRColorSelectorScrollerViewDelegate> {
+@interface ViewController : UIViewController <IRPopoverViewDelegate, IRPickerViewDelegate, IRColorSelectorScrollerViewDelegate, IRHorizontalPickerViewDataSource, IRHorizontalPickerViewDelegate> {
     
     CGPoint point;
     
@@ -21,9 +22,18 @@
     
 }
 
-@property (weak, nonatomic) IBOutlet UIView *selectedColor;
+// Example for IRHorizontalPickerView
+
+@property (weak, nonatomic) IBOutlet IRHorizontalPickerView *horizontalPickerView;
+@property (strong, nonatomic) NSArray *viewArray;
+
+// Example for IRPickerView
+
 @property (strong) IRPickerView *picker;
 
+// Example for IRColorSelectorScrollerView
+
+@property (weak, nonatomic) IBOutlet UIView *selectedColor;
 @property (weak, nonatomic) IBOutlet IRColorSelectorScrollerView *colorPicker;
 
 

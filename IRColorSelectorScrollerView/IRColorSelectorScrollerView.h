@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-
 #define EXTRA_SCALE 0.2
 #define SQUARE_SIZE_RATIO 0.6
 
 @protocol IRColorSelectorScrollerViewDelegate;
 
-@interface IRColorSelectorScrollerView : UIScrollView <UIScrollViewDelegate>
+@interface IRColorSelectorScrollerView : UIScrollView 
 
 @property (assign, nonatomic) id <IRColorSelectorScrollerViewDelegate> pickerDelegate;
 
@@ -30,7 +29,7 @@
 @protocol IRColorSelectorScrollerViewDelegate <NSObject>
 @optional
 
-- (void)picker:(IRColorSelectorScrollerView *)picker color:(UIColor*)color forIndex:(int)index;
+- (void)picker:(IRColorSelectorScrollerView *)picker forIndex:(int)index;
 
 @end
 

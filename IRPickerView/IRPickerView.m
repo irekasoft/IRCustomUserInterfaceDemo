@@ -158,7 +158,7 @@ static float durationAnimation = 0.3f;
 	
 }
 
-#pragma mark - self.pickerView delegate methods
+#pragma mark - UIPickerViewDelegate
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 }
@@ -169,7 +169,7 @@ static float durationAnimation = 0.3f;
 }
 
 
-#pragma mark data source
+#pragma mark - UIPickerViewDataSource
 
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

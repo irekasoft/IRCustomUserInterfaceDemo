@@ -1,30 +1,29 @@
 //
-//  IRColorSelectorScrollerView.m
-//  IRScrollerDemo
+//  IRHorizontalScrollView.m
+//  IRCustomUserInterfaceDemo
 //
-//  Created by Muhammad Hijazi  on 13/4/15.
+//  Created by Hijazi on 24/4/15.
 //  Copyright (c) 2015 iReka Soft. All rights reserved.
 //
 
-#import "IRColorSelectorScrollerView.h"
+#import "IRHorizontalPickerView.h"
 
 #define HEX_COLOR(hexValue, alphaValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:alphaValue]
 
-
-@interface IRColorSelectorScrollerView () <UIScrollViewDelegate> {
+@interface IRHorizontalPickerView () <UIScrollViewDelegate> {
     
     CGFloat scrollViewWidth;
     CGFloat scrollViewHeight;
     CGFloat square_side;
     CGFloat xOffset;
     
-    int numberOfSelection;
+    NSInteger numberOfSelection;
     
 }
 
 @end
 
-@implementation IRColorSelectorScrollerView
+@implementation IRHorizontalPickerView
 
 - (id)initWithFrame:(CGRect)frame {
     if((self = [super initWithFrame:frame])) {
@@ -41,42 +40,69 @@
 }
 
 - (void)selecting:(UIButton *)sender{
-
+    
     [self setContentOffset:CGPointMake((int)sender.tag*square_side, 0) animated:YES];
 }
 
 - (void)setup{
     self.backgroundColor = [UIColor clearColor];
-
+    
     self.showsHorizontalScrollIndicator = NO;
     self.delegate = self;
+    
+    [self reloadData];
+    
+}
 
+#pragma mark - reload data
+
+- (void)reloadData{
+    
     scrollViewWidth  = self.frame.size.width;
     scrollViewHeight = self.frame.size.height;
-
-    square_side = scrollViewHeight*SQUARE_SIZE_RATIO;
     
+    square_side = scrollViewHeight*SQUARE_SIZE_RATIO;
     xOffset = (scrollViewWidth-square_side)/2;
     
-    NSArray *colorArray;
-    if (self.colorArray) {
-        colorArray = self.colorArray;
-    }else{
-        colorArray = [IRColorSelectorScrollerView colorArray];
-    }
-
-    numberOfSelection = (int)[colorArray count];
+    numberOfSelection = [self.pickerViewDataSource numberOfItemsInPicker:self];
+    
     for (int i = 0; i < numberOfSelection; i++) {
         UIButton *view = [[UIButton alloc] initWithFrame:CGRectMake(xOffset + i*square_side, (scrollViewHeight - square_side)/2, square_side, square_side)];
-        view.backgroundColor = HEX_COLOR([colorArray[i] integerValue], 1.0);
-        [view addTarget:self action:@selector(selecting:) forControlEvents:UIControlEventTouchUpInside];
-        view.tag = i;
+        
+        // when the controller apply this data source
+        // we use the supplied view
+        if ([self.pickerViewDataSource respondsToSelector:@selector(picker:contentView:viewForItem:)]) {
+            
+            UIView *addOnView = [self.pickerViewDataSource picker:self contentView:view viewForItem:i];
+            
+            [view addSubview:addOnView];
+            
+            
+        }else{
+            view.backgroundColor = [UIColor lightGrayColor];
+            UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
+            label.textAlignment = NSTextAlignmentCenter;
+            
+            NSString *string = [self.pickerViewDataSource picker:self stringForItem:i];
+            
+            label.text = string;
+            label.backgroundColor = [UIColor clearColor];
+            [view addSubview:label];
+            
+            
+            
+            [view addTarget:self action:@selector(selecting:) forControlEvents:UIControlEventTouchUpInside];
+            
+            
+            view.tag = i;
+        }
+        
+        
         [self addSubview:view];
         
     }
     
     self.contentSize = CGSizeMake(xOffset*2 + square_side * numberOfSelection , scrollViewHeight);
-
 }
 
 // called on finger up if the user dragged. velocity is in points/millisecond. targetContentOffset may be changed to adjust where the scroll view comes to rest
@@ -97,27 +123,23 @@
     
     UIButton *centerView;
     CGFloat centerFloat = 0;
-
+    
     // + 1 untuk trick pilih ke-dua
     CGFloat offsetX = self.contentOffset.x + 1 ;
     CGFloat original_offsetX = self.contentOffset.x;
-    
-    // issue bila tengah-tengah 2 different akan jadi sama, dan tak tahu
-    // mana nak pilih.
-    // perlu sikit offset.
+ 
     for (UIView *view in self.subviews) {
-
+        
         if ([view isKindOfClass:[UIButton class]]) {
             
             view.transform = CGAffineTransformIdentity;
             
             CGFloat viewX = view.frame.origin.x-xOffset;
             CGFloat different = fabs(offsetX - viewX);
-
+            
             [view.layer setShadowOffset:CGSizeZero];
             [view.layer setShadowColor:nil];
             [view.layer setShadowOpacity:0];
-            view.layer.cornerRadius = 0;
             if (closestX > different || closestX == 0) {
                 closestX = different; // bookeeping
                 
@@ -128,33 +150,30 @@
                 }else{
                     centerView = (UIButton *)view;
                 }
-
+                
                 
             }
         }
         
     }
-
+    
     [self bringSubviewToFront:centerView];
     
     centerView.clipsToBounds = NO;
     [self sendCallback];
-    
-    [UIView animateWithDuration:0.01 animations:^{
-        centerView.layer.cornerRadius = square_side * 0.05;
-    }];
+  
     
     [centerView.layer setShadowOffset:CGSizeMake(0, 1)];
     [centerView.layer setShadowColor:[[UIColor blackColor] CGColor]];
     [centerView.layer setShadowRadius:2.0];
     [centerView.layer setShadowOpacity:0.4];
-
+    
     float normalize = 1 - centerFloat / (square_side/2);
     normalize = fabs(normalize);
-
+    
     CGFloat extraScale = EXTRA_SCALE * normalize;
     centerView.transform = CGAffineTransformMakeScale(1.0+extraScale, 1.0+extraScale);
-
+    
 }
 
 
@@ -175,12 +194,12 @@
     if (idx < 0) {
         idx = 0;
     }else if (idx >= numberOfSelection -1){
-        idx = numberOfSelection-1;
+        idx = (int)numberOfSelection-1;
     }
     
-    if ([self.pickerDelegate respondsToSelector:@selector(picker:forIndex:)]) {
+    if ([self.pickerViewDelegate respondsToSelector:@selector(horizontalPicker:forIndex:)]) {
         
-        [self.pickerDelegate picker:self forIndex:idx];
+        [self.pickerViewDelegate horizontalPicker:self forIndex:idx];
         
     }
 }
@@ -193,46 +212,6 @@
     [self setContentOffset:CGPointMake(currentSelectedIndex*square_side, 0) animated:NO];
 }
 
-#pragma mark - Class Method
 
-+ (NSArray *)colorArray{
-    
-    NSArray *array;
-    
-    array = @[@(0xD0041B),
-              @(0xFF560E),
-              @(0xFF8B28),
-              @(0xFFAB32),
-              @(0xFFBB33),
-              
-              @(0xFFD503),
-              @(0xABD87D),
-              @(0x91CA5B),
-              @(0x60CEAB),
-              @(0x6BD8C4),
-              
-              @(0x4AC9E8),
-              @(0x41AEF1),
-              @(0x3C95FD),
-              @(0x7676F3),
-              @(0x856CE8),
-              
-              @(0xAB64E2),
-              @(0xDC62E1),
-              @(0xE34EB8),
-              @(0xD74081),
-              @(0xF62453),
-              
-              
-              ];
-    
-    
-    return array;
-}
-
-+ (UIColor *)colorForIdx:(NSInteger)index{
-    NSInteger colorNo = [[IRColorSelectorScrollerView colorArray][index] integerValue];
-    return HEX_COLOR(colorNo, 1);
-}
 
 @end

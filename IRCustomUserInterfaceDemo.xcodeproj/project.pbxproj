@@ -21,6 +21,7 @@
 		A39BD50E1ADB2D280093FA0C /* IRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD50D1ADB2D280093FA0C /* IRPickerView.m */; };
 		A39BD5121ADB31700093FA0C /* IRAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39BD5111ADB31700093FA0C /* IRAssetsPickerController.m */; };
 		A39BD5151ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch in Resources */ = {isa = PBXBuildFile; fileRef = A39BD5141ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch */; };
+		A3B370C51AE9627600DA7411 /* IRHorizontalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B370C41AE9627600DA7411 /* IRHorizontalPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		A39BD5101ADB31700093FA0C /* IRAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRAssetsPickerController.h; sourceTree = "<group>"; };
 		A39BD5111ADB31700093FA0C /* IRAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRAssetsPickerController.m; sourceTree = "<group>"; };
 		A39BD5141ADB34EC0093FA0C /* IRCustomUserInterfaceDemo.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRCustomUserInterfaceDemo.sketch; sourceTree = "<group>"; };
+		A3B370C31AE9627600DA7411 /* IRHorizontalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRHorizontalPickerView.h; sourceTree = "<group>"; };
+		A3B370C41AE9627600DA7411 /* IRHorizontalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRHorizontalPickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,8 @@
 				A306283D1ADC509000E40333 /* IRRoundedButton.m */,
 				A39BD5101ADB31700093FA0C /* IRAssetsPickerController.h */,
 				A39BD5111ADB31700093FA0C /* IRAssetsPickerController.m */,
+				A3B370C31AE9627600DA7411 /* IRHorizontalPickerView.h */,
+				A3B370C41AE9627600DA7411 /* IRHorizontalPickerView.m */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				A39BD5121ADB31700093FA0C /* IRAssetsPickerController.m in Sources */,
 				A39BD4E71ADB26AD0093FA0C /* AppDelegate.m in Sources */,
 				A306283E1ADC509000E40333 /* IRRoundedButton.m in Sources */,
+				A3B370C51AE9627600DA7411 /* IRHorizontalPickerView.m in Sources */,
 				A39BD50E1ADB2D280093FA0C /* IRPickerView.m in Sources */,
 				A39BD4E41ADB26AD0093FA0C /* main.m in Sources */,
 				A39BD50A1ADB26F70093FA0C /* IRPopoverView.m in Sources */,

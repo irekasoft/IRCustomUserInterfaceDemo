@@ -24,7 +24,28 @@
 
     self.selectedColor.backgroundColor = [IRColorSelectorScrollerView colorForIdx:self.colorPicker.currentSelectedIndex];
    
+    //
+    self.horizontalPickerView.pickerViewDataSource = self;
+    self.horizontalPickerView.pickerViewDelegate = self;
     
+    
+    self.viewArray = @[[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1"]],
+                       [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2"]]
+                       ];
+    
+    [self.horizontalPickerView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,18 +86,10 @@
 #pragma mark - IRColorSelectorScrollerViewDelegate
 
 
-- (void)picker:(IRColorSelectorScrollerView *)picker color:(UIColor*)color forIndex:(int)index{
+- (void)picker:(IRColorSelectorScrollerView *)picker forIndex:(int)index{
     
     NSLog(@"idx %d",index);
-    self.selectedColor.backgroundColor = color;
-    
-}
-
-
-#pragma mark - IRPickerViewDelegate
-
-
-- (void)picker:(IRPickerView *)picker DoneClicked:(NSString *)name forIndex:(int)index{
+    self.selectedColor.backgroundColor = [IRColorSelectorScrollerView colorForIdx:index];
     
 }
 
@@ -103,4 +116,37 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
 }
+
+
+#pragma mark - IRHorizontalPickerViewDataSource
+
+- (NSInteger)numberOfItemsInPicker:(IRHorizontalPickerView *)pickerView{
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return [self.viewArray count];
+}
+
+- (NSString *)picker:(IRHorizontalPickerView *)pickerView stringForItem:(NSInteger)item{
+    return [NSString stringWithFormat:@"%d",(int)item+1];
+}
+
+- (UIView *)picker:(IRHorizontalPickerView *)pickerView contentView:(UIView *)contentView viewForItem:(NSInteger)item{
+    
+    UIView *myView = [[UIView alloc] initWithFrame:contentView.bounds];
+    
+    myView.backgroundColor = [UIColor greenColor];
+    
+    return self.viewArray[item];
+}
+
+#pragma mark - IRHorizontalPickerViewDelegate
+
+
+- (void)horizontalPicker:(IRHorizontalPickerView *)pickerView forIndex:(int)index{
+    
+    
+}
+    
+
+
 @end
