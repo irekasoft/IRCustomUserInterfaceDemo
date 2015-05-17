@@ -128,9 +128,9 @@ static float durationAnimation = 0.3f;
         
         int index = (int)[self.pickerView selectedRowInComponent:0];
         
-        [self.delegate picker:self clicked:self.optionsArray[index] forIndex:index];
-        
-
+        if ([self.delegate respondsToSelector:@selector(picker:clicked:forIndex:)]) {
+            [self.delegate picker:self clicked:self.optionsArray[index] forIndex:index];
+        }
     }
     [self hide];
 }
@@ -165,7 +165,7 @@ static float durationAnimation = 0.3f;
 
 
 - (CGFloat)pickerView:(UIPickerView *)pickerViews rowHeightForComponent:(NSInteger)component {
-	return 50;
+	return ROW_HEIGHT;
 }
 
 

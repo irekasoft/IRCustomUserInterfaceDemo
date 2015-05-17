@@ -122,7 +122,6 @@
 
 - (NSInteger)numberOfItemsInPicker:(IRHorizontalPickerView *)pickerView{
     
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     return [self.viewArray count];
 }
 

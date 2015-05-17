@@ -4,6 +4,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define ROW_HEIGHT 50
+
 @protocol IRPickerViewDelegate;
 
 @interface IRPickerView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>{
@@ -11,7 +13,6 @@
 	UIButton *overlayButton;
     CGRect windowBounds;
 }
-
 
 - (void)show;
 
